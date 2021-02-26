@@ -5,9 +5,7 @@ module.exports = function getSeason(date) {
   if (!date) {
     return 'Unable to determine the time of year!';
   };
-  let arrDate = [date.getFullYear(), date.getMonth(), date.getDay()];
-  let arrStringDate = date.toString().split('');
-  if (date.getDay() != [arrStringDate[8], arrStringDate[9]].join('')) {
+  if (!date.getMilliseconds()) {
     throw new Error('Упс');
   }
   let month = date.getMonth();
@@ -19,5 +17,5 @@ module.exports = function getSeason(date) {
     return 'summer';
   } else if (month <= 10) {
     return 'autumn';
-  };
+  }
 };

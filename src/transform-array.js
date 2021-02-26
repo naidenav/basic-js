@@ -10,8 +10,7 @@ module.exports = function transform(arr) {
 			transformArr.push(arr[i]);
 		} else if (arr[i] === '--discard-next' && i != arr.length -1) {
 			i++;
-			i++;
-		} else if (arr[i] === '--discard-prev' && i != 0) {
+		} else if (arr[i] === '--discard-prev' && i != 0 && arr[i - 2] != '--discard-next') {
 			transformArr.pop()
 		} else if (arr[i] === '--double-next' && i != arr.length -1) {
 			transformArr.push(arr[i + 1]);
